@@ -104,7 +104,7 @@ html {
   margin-bottom: 0.2rem;
 }
 .SectionMensages .wrapperMensajes .listofMensajes .item .mensage {
-  overflow-x: hidden;
+  overflow: hidden;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
