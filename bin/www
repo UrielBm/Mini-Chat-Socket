@@ -22,7 +22,12 @@ app.set("port", port);
 
 const server = http.createServer(app);
 // socket io
-const io = require("socket.io")(server);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
 // usando la clase sockets
 new Sockets(io);
 /**
