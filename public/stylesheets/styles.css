@@ -24,8 +24,9 @@ html {
 .form .wrapperInput {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.5rem;
 }
 .form .wrapperInput .inputMensaje {
   width: 330px;
@@ -37,7 +38,7 @@ html {
   color: #3c415c;
 }
 .form .wrapperInput .inputMensaje:focus {
-  width: 350px;
+  width: 340px;
 }
 @media only screen and (max-width: 450px) {
   .form .wrapperInput .inputMensaje {
@@ -95,8 +96,15 @@ html {
 .SectionMensages .wrapperMensajes .listofMensajes .item:not(:last-of-type) {
   margin-bottom: 0.5rem;
 }
+.SectionMensages .wrapperMensajes .listofMensajes .item .user {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #301b3f;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 0.2rem;
+}
 .SectionMensages .wrapperMensajes .listofMensajes .item .mensage {
-  overflow: hidden;
+  overflow-x: hidden;
   width: 100%;
   display: flex;
   flex-wrap: wrap;

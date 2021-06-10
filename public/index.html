@@ -16,7 +16,11 @@
    </main>
    <form class="form" id="miform">
      <section class="wrapperSubtitle">
-        <h2 class="subtitle">Escribe un menseje</h2>
+        <h2 class="subtitle">Escribe un mensaje</h2>
+     </section>
+     <section class="wrapperInput">
+       <label for="name">Tu userName</label>
+       <input id="userName" type="text" placeholder="escribe tu userName" class="inputMensaje" required autocomplete="off" />
      </section>
     <section class="wrapperInput">
         <input id="mensage" type="text" placeholder="escribe tu mensaje" class="inputMensaje" required autocomplete="off" maxlength="45" />
@@ -38,21 +42,23 @@
     const socket = io("https://mini-chat-uriel.herokuapp.com/");
     const form = document.querySelector("#miform")
     const mensaje = document.querySelector("#mensage")
+    const userName = document.querySelector("#userName")
     const mensajes = document.querySelector("#listmensajes")
     
      form.addEventListener("submit", (e) => {
         e.preventDefault()
         const msg  = mensaje.value;
         socket.emit("mensaje-to-server", {
+            user: userName.value,
             msg,
         })
         mensaje.value = "";
      })
      socket.on("mensaje-from-server", (data) => {
-       const {msg, date} = data;
+       const {msg, date,user} = data;
        let formDate = date.split("T")
        const time = formDate[1].split(".")
-       mensajes.innerHTML += `<li class="item"><span class="mensage">&#8618; ${msg}</span><span class="date">${formDate[0]}, ${time[0]}</span></li>`
+       mensajes.innerHTML += `<li class="item"><span class="user">User: ${user}</span><span class="mensage">&#8618; ${msg}</span><span class="date">${formDate[0]}, ${time[0]}</span></li>`
      })
   </script>
   </body>
