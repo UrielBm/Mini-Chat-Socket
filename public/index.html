@@ -1,0 +1,59 @@
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pagina acerca de la practica de un chat con socket io prueba por Uriel BM."> 
+    <link rel="icon" type="image/vnd.microsoft.icon" href="./images/chat.ico" />
+    <link rel="stylesheet" href="./stylesheets/reset.css" />
+    <link rel="stylesheet" href="./stylesheets/styles.css" />
+    <title>My mini Chat</title>
+  </head>
+  <body>
+   <main class="wrapperMain">
+    <h1 class="title">Mi mini Chat</h1>
+   </main>
+   <form class="form" id="miform">
+     <section class="wrapperSubtitle">
+        <h2 class="subtitle">Escribe un menseje</h2>
+     </section>
+    <section class="wrapperInput">
+        <input id="mensage" type="text" placeholder="escribe tu mensaje" class="inputMensaje" required autocomplete="off" maxlength="45" />
+        <button class="buttonSend">Enviar mensaje</button>
+    </section>
+  </form>
+  <section class="SectionMensages">
+    <section class="wrapperSubtitle">
+      <h2 class="subtitle">Los mensajes enviados</h2>
+    </section>
+    <section class="wrapperMensajes">
+        <ul class="listofMensajes"  id="listmensajes">
+          <!-- aqui van a ir los mensajes -->
+        </ul>
+    </section>
+  </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js" integrity="sha512-iZIBSs+gDyTH0ZhUem9eQ1t4DcEn2B9lHxfRMeGQhyNdSUz+rb+5A3ummX6DQTOIs1XK0gOteOg/LPtSo9VJ+w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    const socket = io("http://localhost:3000");
+    const form = document.querySelector("#miform")
+    const mensaje = document.querySelector("#mensage")
+    const mensajes = document.querySelector("#listmensajes")
+    
+     form.addEventListener("submit", (e) => {
+        e.preventDefault()
+        const msg  = mensaje.value;
+        socket.emit("mensaje-to-server", {
+            msg,
+        })
+        mensaje.value = "";
+     })
+     socket.on("mensaje-from-server", (data) => {
+       const {msg, date} = data;
+       let formDate = date.split("T")
+       const time = formDate[1].split(".")
+       mensajes.innerHTML += `<li class="item"><span class="mensage">&#8618; ${msg}</span><span class="date">${formDate[0]}, ${time[0]}</span></li>`
+     })
+  </script>
+  </body>
+  </html>

@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Roboto+Mono:wght@300;400;700&display=swap");
+html {
+  font-family: "Nunito", sans-serif;
+}
+
+.wrapperMain {
+  width: 100vw;
+  background-color: #301b3f;
+  padding: 2rem 1rem;
+}
+.wrapperMain .title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Roboto Mono", monospace;
+  color: #b4a5a5;
+}
+
+.form {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.form .wrapperInput {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.form .wrapperInput .inputMensaje {
+  width: 330px;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  outline: none;
+}
+.form .wrapperInput .inputMensaje::placeholder {
+  color: #3c415c;
+}
+.form .wrapperInput .inputMensaje:focus {
+  width: 350px;
+}
+@media only screen and (max-width: 450px) {
+  .form .wrapperInput .inputMensaje {
+    margin-bottom: 1rem;
+  }
+}
+.form .wrapperInput .buttonSend {
+  width: 12rem;
+  font-size: 1rem;
+  background-color: #151515;
+  color: #b4a5a5;
+  font-weight: 500;
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+.form .wrapperInput .buttonSend:focus {
+  cursor: pointer;
+  background-color: #301b3f;
+  color: #b4a5a5;
+  width: 13rem;
+  font-size: 1.1rem;
+}
+@media only screen and (max-width: 450px) {
+  .form .wrapperInput {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.SectionMensages {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.SectionMensages .wrapperMensajes {
+  width: 100%;
+  border: solid #301b3f 1px;
+  border-radius: 2rem;
+  padding: 1rem;
+}
+.SectionMensages .wrapperMensajes .listofMensajes {
+  width: 100%;
+  font-size: 1.2rem;
+  font-family: "Roboto Mono", monospace;
+}
+.SectionMensages .wrapperMensajes .listofMensajes .item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+.SectionMensages .wrapperMensajes .listofMensajes .item:not(:last-of-type) {
+  margin-bottom: 0.5rem;
+}
+.SectionMensages .wrapperMensajes .listofMensajes .item .mensage {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.94rem;
+  color: #151515;
+  margin-bottom: 0.3rem;
+}
+.SectionMensages .wrapperMensajes .listofMensajes .item .date {
+  color: #301b3f;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.wrapperSubtitle {
+  margin: 1rem 0;
+}
+.wrapperSubtitle .subtitle {
+  font-size: 2rem;
+  color: #301b3f;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=styles.css.map */
